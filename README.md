@@ -43,13 +43,13 @@ aws-sts-temporal-access/
 ### 1️⃣ Crear el rol `DevEC2AccessRole`
 Rol con permiso `AmazonEC2ReadOnlyAccess` para que sea asumido por el usuario `usuario-dev`.
 
-📸 `screenshots/01-crear-rol.png`
+![Crear rol](screenshots/01-crear-rol.png)
 
 ---
 
 ### 2️⃣ Revisar política de confianza inicial
 
-📸 `screenshots/02-relaciones-confianza.png`
+![Política inicial](screenshots/02-relaciones-confianza.png)
 
 ---
 
@@ -58,11 +58,11 @@ Se permitió que el usuario `usuario-dev` asumiera el rol:
 
 ```json
 "Principal": {
-  "AWS": "arn:aws:iam::<ID_CUENTA>:user/usuario-dev"
+  "AWS": "arn:aws:iam::<ID>:user/usuario-dev"
 }
 ```
 
-📸 `screenshots/03-politica-confianza-modificada.png`
+![Política modificada](screenshots/03-politica-confianza-modificada.png)
 
 ---
 
@@ -75,13 +75,13 @@ aws sts assume-role \
   --profile dev
 ```
 
-📸 `screenshots/04-assume-role-output.png`
+![Assume role](screenshots/04-assume-role-output.png)
 
 ---
 
 ### 5️⃣ Error por falta de SessionToken al configurar con `aws configure`
 
-📸 `screenshots/05-error-sin-token-y-export-correcto.png`
+![error export](screenshots/05-error-sin-token-y-export-correcto.png)
 
 ---
 
@@ -94,7 +94,7 @@ export AWS_SESSION_TOKEN=...
 aws ec2 describe-instances --region us-east-2
 ```
 
-📸 `screenshots/06-dev-temp-acceso-ec2.png`
+![dev acceso_temp](screenshots/06-dev-temp-acceso-ec2.png)
 
 ---
 
@@ -104,14 +104,3 @@ El usuario `usuario-dev`, sin permisos directos, logró acceder a EC2 mediante e
 
 ---
 
-## 📌 Aprendizajes
-
-- Importancia de configurar correctamente el `SessionToken` al usar STS
-- Separación entre usuarios y permisos mediante `assume-role`
-- Uso adecuado de políticas de confianza en IAM
-
----
-
-## 🧭 Siguiente paso sugerido
-
-Explorar cómo aplicar MFA en la política de confianza para reforzar la seguridad del `assume-role`.
