@@ -1,6 +1,6 @@
 # Acceso temporal con roles (STS) en AWS
 
-Este laboratorio explora cómo permitir que un usuario sin permisos directos acceda temporalmente a ciertos servicios de AWS, como EC2, utilizando roles de IAM junto con Security Token Service (STS). La idea es evitar el uso de credenciales permanentes y, al mismo tiempo, mantener el control sobre qué acciones puede realizar ese usuario.
+En este laboratorio se aprendió cómo permitir que un usuario sin permisos directos acceda temporalmente a ciertos servicios de AWS, como EC2, utilizando roles de IAM junto con Security Token Service (STS). La idea es evitar el uso de credenciales permanentes y mantener el control sobre qué acciones puede realizar ese usuario.
 
 ## Objetivos
 
@@ -10,7 +10,7 @@ Este laboratorio explora cómo permitir que un usuario sin permisos directos acc
 
 ---
 
-## 🛠️ Herramientas utilizadas
+## Herramientas utilizadas
 
 - AWS Console
 - AWS IAM
@@ -96,5 +96,5 @@ aws ec2 describe-instances --region us-east-2
 
 ---
 
-## Contacto: sebastian.cardenas.t@gmail.com
+Contacto: sebastian.cardenas.t@gmail.com
 
