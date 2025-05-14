@@ -1,14 +1,12 @@
-# 🛡️ Acceso temporal con roles (STS) en AWS
+# Acceso temporal con roles (STS) en AWS
 
-Este laboratorio demuestra cómo permitir que un usuario sin permisos directos acceda temporalmente a servicios de AWS (como EC2) mediante el uso de **IAM Roles** y **STS (Security Token Service)**, evitando así el uso de credenciales permanentes.
+Este laboratorio explora cómo permitir que un usuario sin permisos directos acceda temporalmente a ciertos servicios de AWS, como EC2, utilizando roles de IAM junto con Security Token Service (STS). La idea es evitar el uso de credenciales permanentes y, al mismo tiempo, mantener el control sobre qué acciones puede realizar ese usuario.
 
----
+## Objetivos
 
-## 🎯 Objetivo
-
-- Implementar acceso temporal con `sts:AssumeRole`
-- Evitar el uso de credenciales permanentes
-- Delegar acceso controlado a EC2 para un usuario no privilegiado
+- Habilitar el acceso temporal mediante `sts:AssumeRole`.
+- Reemplazar credenciales fijas por sesiones controladas.
+- Delegar permisos específicos sin necesidad de modificar directamente el perfil del usuario.
 
 ---
 
@@ -22,7 +20,7 @@ Este laboratorio demuestra cómo permitir que un usuario sin permisos directos a
 
 ---
 
-## 📁 Estructura del repositorio
+## Estructura del repositorio
 
 ```
 aws-sts-temporal-access/
@@ -38,7 +36,7 @@ aws-sts-temporal-access/
 
 ---
 
-## 🔍 Pasos realizados
+## Pasos realizados
 
 ### 1️⃣ Crear el rol `DevEC2AccessRole`
 Rol con permiso `AmazonEC2ReadOnlyAccess` para que sea asumido por el usuario `usuario-dev`.
@@ -98,9 +96,5 @@ aws ec2 describe-instances --region us-east-2
 
 ---
 
-## ✅ Resultado
-
-El usuario `usuario-dev`, sin permisos directos, logró acceder a EC2 mediante el rol temporal, cumpliendo así con buenas prácticas de seguridad en AWS.
-
----
+## Contacto: sebastian.cardenas.t@gmail.com
 
